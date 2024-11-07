@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/mainlayout}">
+<head>
+<title>Home</title>
+</head>
+<body>
+
+	<!-- Caroussel full header page -->
+	
+	<div layout:fragment="fullHeaderPage" class="container-fluid px-0 mx-0 full-header-page">
+		<div id="homeHeaderCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#homeHeaderCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#homeHeaderCarousel" data-slide-to="1"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active" id="home-carousel-1">
+					<div class="w-100 h-100 cover-pane"></div>
+					<div class="carousel-caption text-left">
+						<div class="container" data-aos="zoom-in">
+							<div class="row">
+								<div class="col-md-6 pt-2 px-3">
+									<h2>Welcome to KomiBank</h2>
+									<p>With KomiBank, banking becomes very simple and easy, <br>
+									Open an account online <br>
+									Consult your accounts, make transfers <br>
+									</p>
+									<div th:replace="components/base::MDCButton('Let\'s get started')"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item" id="home-carousel-2">
+					<div class="w-100 h-100 cover-pane"></div>
+					<div class="carousel-caption text-left">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-6 pt-2 px-3">
+									<h2>Banking, wherever and whenever you want</h2>
+									<p>Your Online Banking simply and securely. Access all your online banking 
+									services for free on your computer or tablet, etc.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a class="carousel-control-prev" href="#homeHeaderCarousel" role="button" data-slide="prev"></a>
+		  	<a class="carousel-control-next" href="#homeHeaderCarousel" role="button" data-slide="next"></a>
+		</div>
+	</div>
+	
+	<!-- Content -->
+	
+	<div layout:fragment="content" class="container-fluid home-page">
+	
+		<!-- FEATURETTES SECTION -->
+		
+		<div class="container">
+			<div class="row pb-5">
+				<div class="col-lg-10 offset-lg-1 features-header text-center">
+					<h3 class="mb-3">Why choose KomiBank ?</h3>
+					<p>Aren't you tired of queuing up for your banking operations ? With Komibank, you have your 
+					bank in your pocket. No need to move to make transactions on your account, check your balance, etc.
+					Just sign in with your username and password to manage everything from one place
+					</p>
+				</div>
+			</div>
+			<div class="row features-content">
+				<div class="col-lg-4 text-center" data-aos="zoom-in-right">
+					<i class="material-icons">public</i>
+					<h4>Internet Banking</h4>
+					<p>Explore the power of simpler and smarter banking. With KomiBank online, manage
+					your accounts and our services whenever or wherever you want</p>
+				</div>
+				<div class="col-lg-4 text-center" data-aos="zoom-in">
+					<i class="material-icons">phonelink_lock</i>
+					<h4>Move With Confidence</h4>
+					<p>Securely manage your money with our Mobile Banking app. You can view your balance, 
+					make payments, deposit cheques and much more. Note: this feature is coming soon</p>
+				</div>
+				<div class="col-lg-4 text-center" id="sign-up" data-aos="zoom-in-left">
+					<i class="material-icons">people</i>
+					<h4>KomiBank community</h4>
+					<p>Our community is growing every day and we are happy because our customers are satisfied.</p>
+					<div th:replace="components/base::MDCButton('Join us now')"></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ACCOUNTS SECTION -->
+		
+		<div class="row pb-3" id="accounts-header">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<h2 class="mb-3">KomiBank Accounts</h2>
+				<p>Choose the right type of bank account that fits your needs. 
+				Take care to read and understand the details of each account before applying</p>
+			</div>
+		</div>
+		<div class="row pt-3 pb-5 accounts" id="accounts">
+			<div class="col-md-6" data-aos="fade-right">
+				<div th:replace="components/card::MDCCard(id='savings-account-card', class='mx-auto mr-lg-4 mr mb-4',
+					title='Savings Account', subTitle='An interest earning account')"></div>
+			</div>
+			<div class="col-md-6" data-aos="fade-left">
+				<div th:replace="components/card::MDCCard(id='current-account-card', class='mx-auto ml-lg-4 mb-5',
+					title='Current Account', subTitle='A transactional checking account')"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

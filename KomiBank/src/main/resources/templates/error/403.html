@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	layout:decorate="~{layouts/mainlayout}">
+<head>
+<meta charset="UTF-8" />
+<title>403 Forbidden</title>
+</head>
+<body>
+	<div layout:fragment="content" class="row py-5 d-flex justify-content-center px-4">
+		<div class="col-sm-10 col-md-8 col-lg-6">
+			<div class="mdc-card">
+				<h4 class="card-header text-white bg-danger">Access denied</h4>
+				<div class="card-body text-center">
+					<i class="material-icons text-danger" style="font-size: 70px">lock</i>
+					<div class="text-center py-3" style="font-size: 20px; font-weight: 400;"
+						th:utext="${accessError?:'You are not authorized for the requested resource !'}">
+						You are not authorized for the requested resource !
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

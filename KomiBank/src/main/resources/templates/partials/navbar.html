@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<!-- Main Menu -->
+
+<nav th:fragment="navbar" class="navbar navbar-dark navbar-expand-md fixed-top" id="main-menu">
+	<a class="navbar-brand" th:href="@{/}">
+		<img alt="logo" width="91" height="30" th:src="@{/images/navlogo.png}">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<i class="material-icons menu">menu</i>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item"><a class="nav-link" href="/" th:href="@{/}">Home</a></li>
+			<th:block sec:authorize="hasRole('ROLE_ADMIN')">
+				<li class="nav-item"><a class="nav-link" th:href="@{/accounts}">Accounts</a></li>
+				<li class="nav-item"><a class="nav-link" th:href="@{/customers}">Customers</a></li>
+			</th:block>
+			<th:block sec:authorize="hasRole('ROLE_USER')">
+				<li class="nav-item"><a class="nav-link" th:href="@{/user/accounts}">Your profile</a></li>
+			</th:block>
+			<li class="nav-item"><a class="nav-link" href="/#accounts-header">Products &amp; services</a></li>
+			<li class="nav-item"><a class="nav-link about" href="#">About</a></li>
+		</ul>
+		<th:block sec:authorize="isAuthenticated()">
+			<a class="nav-link mdc-button mdc-button--outlined logout" th:href="@{/logout}">Logout</a>
+		</th:block>
+		<th:block th:if="${#request.userPrincipal == null}">
+			<a class="nav-link mr-3 pl-0 login" th:href="@{/login}">Login</a>
+			<a class="nav-link mdc-button mdc-button--outlined signup" th:href="@{/signup}">Sign up</a>
+		</th:block>
+	</div>
+</nav>
+
+</html>

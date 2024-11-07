@@ -1,0 +1,43 @@
+services:
+  bank:
+    container_name: bank
+    build: .
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mysql
+    # restart: on-failure
+    # environment:
+    #   - SPRING_DATASOURCE_URL jdbc:mysql://mysql_db:3306/komimbank?createDatabaseIfNotExist=true
+  
+  admin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    ports:
+    - "8090:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: rootroot
+
+
+  mysql:
+    container_name: mysql
+    image: mysql:8
+    ports:
+      - '3306:3306'
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=komibank
+      - MYSQL_ROOT_PASSWORD=rootroot
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=rootroot
+
+    
+    # command: >
+    #   mysql -u root -prootroot
+    #   CREATE DATABASE IF NOT EXISTS komibank;
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+
+
+

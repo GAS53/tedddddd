@@ -1,0 +1,42 @@
+{
+  "name": "KomiBank",
+  "version": "1.0.0",
+  "description": "js (es6+) source for KomiBank front-end",
+  "main": ".src/app.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack",
+    "build": "./node_modules/.bin/webpack -p",
+    "watch": "./node_modules/.bin/webpack --watch",
+    "start": "./node_modules/.bin/webpack-dev-server"
+  },
+  "author": "Léon Logli",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@material/button": "^1.1.1",
+    "@material/card": "^1.1.1",
+    "@material/checkbox": "^2.1.1",
+    "@material/fab": "^2.1.1",
+    "@material/form-field": "^2.1.1",
+    "@material/icon-button": "^1.1.0",
+    "@material/list": "^1.1.1",
+    "@material/menu": "^1.1.1",
+    "@material/menu-surface": "^1.1.1",
+    "@material/ripple": "^1.1.0",
+    "@material/snackbar": "^2.1.1",
+    "@material/tab-bar": "^2.0.0",
+    "@material/textfield": "^2.0.0",
+    "autoprefixer": "^9.5.1",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^6.0.4",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.11.5"
+  }
+}
